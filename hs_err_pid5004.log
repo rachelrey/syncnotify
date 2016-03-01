@@ -1,0 +1,76 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 32744 bytes for ChunkPool::allocate
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:211), pid=5004, tid=892
+#
+# JRE version: Java(TM) SE Runtime Environment (7.0_51-b13) (build 1.7.0_51-b13)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (24.51-b03 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000007fb1000):  JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=892, stack(0x0000000009570000,0x0000000009670000)]
+
+Stack: [0x0000000009570000,0x0000000009670000]
+
+Current CompileTask:
+C2:  17222  655   !         com.android.dx.cf.code.BytecodeArray::parseInstruction (2764 bytes)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0000000007fea000 JavaThread "Service Thread" daemon [_thread_blocked, id=6328, stack(0x0000000009770000,0x0000000009870000)]
+  0x0000000007fb3000 JavaThread "C2 CompilerThread1" daemon [_thread_in_native, id=6316, stack(0x0000000009670000,0x0000000009770000)]
+=>0x0000000007fb1000 JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=892, stack(0x0000000009570000,0x0000000009670000)]
+  0x0000000007fb0800 JavaThread "Attach Listener" daemon [_thread_blocked, id=5172, stack(0x0000000009470000,0x0000000009570000)]
+  0x0000000007fdb000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=5960, stack(0x0000000009370000,0x0000000009470000)]
+  0x0000000007f99000 JavaThread "Finalizer" daemon [_thread_blocked, id=3956, stack(0x0000000009250000,0x0000000009350000)]
+  0x0000000007f94000 JavaThread "Reference Handler" daemon [_thread_blocked, id=6628, stack(0x0000000009150000,0x0000000009250000)]
+  0x0000000001ff0800 JavaThread "main" [_thread_in_vm, id=4808, stack(0x0000000001ef0000,0x0000000001ff0000)]
+
+Other Threads:
+  0x0000000007f90800 VMThread [stack: 0x0000000009050000,0x0000000009150000] [id=6128]
+  0x0000000007ff4000 WatcherThread [stack: 0x0000000009870000,0x0000000009970000] [id=2692]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ PSYoungGen      total 102400K, used 60291K [0x00000000eaa80000, 0x00000000f5d80000, 0x0000000100000000)
+  eden space 76800K, 78% used [0x00000000eaa80000,0x00000000ee560cd0,0x00000000ef580000)
+  from space 25600K, 0% used [0x00000000f1c80000,0x00000000f1c80000,0x00000000f3580000)
+  to   space 39936K, 0% used [0x00000000ef580000,0x00000000ef580000,0x00000000f1c80000)
+ ParOldGen       total 103424K, used 50740K [0x00000000c0000000, 0x00000000c6500000, 0x00000000eaa80000)
+  object space 103424K, 49% used [0x00000000c0000000,0x00000000c318d148,0x00000000c6500000)
+ PSPermGen       total 21504K, used 5491K [0x00000000bae00000, 0x00000000bc300000, 0x00000000c0000000)
+  object space 21504K, 25% used [0x00000000bae00000,0x00000000bb35ccc8,0x00000000bc300000)
+
+Card table byte_map: [0x00000000051b0000,0x00000000053e0000] byte_map_base: 0x0000000004bd9000
+
+Polling page: 0x0000000001eb0000
+
+Code Cache  [0x00000000020f0000, 0x0000000002360000, 0x00000000050f0000)
+ total_blobs=783 nmethods=550 adapters=186 free_code_cache=47129Kb largest_free_block=47948672
+
+Compilation events (10 events):
+Event: 17.081 Thread 0x0000000007fb1000 nmethod 650 0x00000000021fb910 code [0x00000000021fba40, 0x00000000021fba98]
+Event: 17.085 Thread 0x0000000007fb1000  651             com.android.dx.cf.code.Merger::mergeType (142 bytes)
+Event: 17.091 Thread 0x0000000007fb1000 nmethod 651 0x00000000021d5b50 code [0x00000000021d5d00, 0x00000000021d6050]
+Event: 17.091 Thread 0x0000000007fb1000 
